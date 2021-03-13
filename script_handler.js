@@ -9,7 +9,7 @@ const dictionary = {
 function readFromScript(script_name)
 {
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", `${window.location.origin}/scripts/${dictionary[script_name]}`, true);
+    rawFile.open("GET", `${window.location.origin}/scripts/${dictionary[script_name]}`, false);
     rawFile.onreadystatechange = function ()
     {
         if(rawFile.readyState === 4)
@@ -20,7 +20,7 @@ function readFromScript(script_name)
             }
         }
     }
-    rawFile.send();
+    rawFile.send(null);
 }
 
 if (parameters.has('script')){

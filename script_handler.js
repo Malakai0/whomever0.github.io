@@ -19,7 +19,7 @@ function readFromScript(script_name)
 }
 
 if (parameters.has('script')){
-    var script_name = parameters.get("script").toLowerCase();
+    var script_name = parameters.get("script");
 
     readFromScript(script_name);
 }else{

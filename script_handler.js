@@ -9,7 +9,7 @@ const dictionary = {
 function readFromScript(script_name)
 {
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", `./scripts/${dictionary[script_name]}`, false);
+    rawFile.open("GET", `./scripts/${dictionary[script_name]}`, true);
     rawFile.onreadystatechange = function ()
     {
         if(rawFile.readyState === 4)

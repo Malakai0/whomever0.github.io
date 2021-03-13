@@ -16,7 +16,7 @@ end)
 repeat wait() until TypeChosen ~= -1;
 ChooseType.Frame:Destroy()
 
-getgenv().Multiplier = 1; -- default idk
+getgenv().Multiplier = 1;
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -256,7 +256,7 @@ end
 local function AuraHit()
     local Root = Player.Character:WaitForChild('LowerTorso', 2)
     local Hits = ToggleValue and math.clamp(getgenv().Multiplier, 1, 50) or 1;
-    for _ = 1, Hits do -- not too laggy
+    for _ = 1, Hits do
         for _,Mob in next, workspace.Mobs:GetChildren() do
             local PrimaryPart = Mob:IsA'Model' and Mob.PrimaryPart
             local Distance = PrimaryPart and (Root.Position - PrimaryPart.Position).Magnitude
@@ -309,7 +309,7 @@ Meta.__namecall = function(self,...)
         local Waiting = SwordSkillsValue == false and HitInfo.Waiting[Mob]
         if (IsExploitCall == false and (not Waiting)) then
             local Hits = ToggleValue and math.clamp(getgenv().Multiplier, 1, 50) or 1;
-            for _ = 1, Hits do -- not too laggyz
+            for _ = 1, Hits do
                 if Invalid(Mob) then break end;
                 if (not HitMob(Mob)) then
                     break;

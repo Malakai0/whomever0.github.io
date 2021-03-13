@@ -33,5 +33,6 @@ if (parameters.has('script')){
         readFromScript("404")
     }
 }else{
+    document.title = "fucking idiot";
     readFromScript("404")
 }

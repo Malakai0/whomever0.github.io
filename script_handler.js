@@ -16,7 +16,7 @@ function readFromScript(script_name)
         {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
-                document.body = rawFile.responseText;
+                document.body.innerHTML = rawFile.responseText;
             }
         }
     }
@@ -29,6 +29,8 @@ if (parameters.has('script')){
 
     if (dictionary[script_name] !== undefined){
         readFromScript(script_name);
+    }else{
+        readFromScript("404")
     }
 }else{
     readFromScript("404")

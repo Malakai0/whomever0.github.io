@@ -7,7 +7,7 @@ function readFromScript(script_name)
     var rawFile = new XMLHttpRequest();
     rawFile.onloadend = () => {
         if (rawFile.status == 200){
-            document.body.innerHTML = rawFile.responseText;
+            document.getElementById("code").innerHTML = rawFile.responseText;
         }else{
             readFromScript("404Script");
         }

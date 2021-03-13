@@ -9,18 +9,11 @@ const dictionary = {
 function readFromScript(script_name)
 {
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", `${window.location.origin}/scripts/${dictionary[script_name]}`, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                document.body.innerHTML = rawFile.responseText;
-            }
-        }
-    }
-    rawFile.send(null);
+    rawFile.addEventListener("load", () => {
+        document.body.innerHTML = rawFile.responseText;
+    })
+    rawFile.open("GET", `${window.location.origin}/scripts/${dictionary[script_name]}`);
+    rawFile.send();
 }
 
 if (parameters.has('script')){

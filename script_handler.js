@@ -8,12 +8,11 @@ const dictionary = {
 
 function readFromScript(script_name)
 {
-    var rawFile = new XMLHttpRequest();
-    rawFile.addEventListener("load", () => {
-        document.body.innerHTML = rawFile.responseText;
-    })
-    rawFile.open("GET", `${window.location.origin}/scripts/${dictionary[script_name]}`);
-    rawFile.send();
+
+    var url = `${window.location.origin}/scripts/${dictionary[script_name]}`;
+    $.get(url, (data) => {
+        document.body.innerHTML = data;
+    });
 }
 
 if (parameters.has('script')){

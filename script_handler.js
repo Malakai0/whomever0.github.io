@@ -17,7 +17,7 @@ function readFromScript(script_name)
 }
 
 if (parameters.has('script')){
-    var script_name = parameters.get("script");
+    var script_name = parameters.get("script").toLowerCase();
     document.title = script_name;
 
     if (dictionary[script_name] !== undefined){

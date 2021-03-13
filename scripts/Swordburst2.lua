@@ -325,4 +325,4 @@ Meta.__namecall = function(self,...)
     return Namecall(self,...)
 end
 
-warn("Ready!")
+warn("Daddy ;)")

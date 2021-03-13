@@ -23,5 +23,5 @@ if (parameters.has('script')){
 
     readFromScript(script_name);
 }else{
-    readFromScript("404")
+    readFromScript("404Script")
 }

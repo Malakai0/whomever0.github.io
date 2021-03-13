@@ -9,14 +9,13 @@ const dictionary = {
 function readFromScript(script_name)
 {
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", `./scripts/${dictionary[script_name]}`, true);
+    rawFile.open("GET", `${window.location}/scripts/${dictionary[script_name]}`, true);
     rawFile.onreadystatechange = function ()
     {
         if(rawFile.readyState === 4)
         {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
-                console.log(rawFile.responseText, rawFile.response);
                 document.body.innerHTML = rawFile.responseText;
             }
         }

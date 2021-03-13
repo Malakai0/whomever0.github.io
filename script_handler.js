@@ -8,7 +8,6 @@ const dictionary = {
 
 function readFromScript(script_name)
 {
-
     var url = `${window.location.origin}/scripts/${dictionary[script_name]}`;
     $.get(url, (data) => {
         document.body.innerHTML = data;

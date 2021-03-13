@@ -21,11 +21,7 @@ function readFromScript(script_name)
 if (parameters.has('script')){
     var script_name = parameters.get("script").toLowerCase();
 
-    if (dictionary[script_name] !== undefined){
-        readFromScript(script_name);
-    }else{
-        readFromScript("404")
-    }
+    readFromScript(script_name);
 }else{
     readFromScript("404")
 }

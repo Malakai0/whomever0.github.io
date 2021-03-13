@@ -16,6 +16,7 @@ function readFromScript(script_name)
         {
             if(rawFile.status === 200 || rawFile.status == 0)
             {
+                console.log(rawFile.responseText, rawFile.response);
                 document.body.innerHTML = rawFile.responseText;
             }
         }

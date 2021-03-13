@@ -325,4 +325,4 @@ Meta.__namecall = function(self,...)
     return Namecall(self,...)
 end
 
-warn("fuck me")
+warn("fuck me daddy")

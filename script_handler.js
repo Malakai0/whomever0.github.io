@@ -1,22 +1,25 @@
 const query = window.location.search;
 const parameters = new URLSearchParams(query);
 
-const dictionary = {
-    "swordburst": "Swordburst2.lua",
-    "404":"404Script.lua"
-}
-
 function readFromScript(script_name)
 {
-    var url = `${window.location.origin}/scripts/${dictionary[script_name]}`;
-    $.get(url, (data) => {
-        document.body.innerHTML = data.replace("/\n/g",'<br/>');
-    });
+    document.title = script_name;
+    var rawFile = new XMLHttpRequest();
+    rawFile.onreadystatechange = () => {
+        if (this.readyState == 4){
+            if (this.status == 200){
+                document.body.innerHTML = rawFile.responseText.replace(/(?:\r\n|\r|\n)/g, '<br>');
+            }else{
+                readFromScript("404Script");
+            }
+        }
+    }
+    rawFile.open("GET", `${window.location.origin}/scripts/${script_name}.lua`);
+    rawFile.send();
 }
 
 if (parameters.has('script')){
     var script_name = parameters.get("script").toLowerCase();
-    document.title = script_name;
 
     if (dictionary[script_name] !== undefined){
         readFromScript(script_name);
@@ -24,6 +27,5 @@ if (parameters.has('script')){
         readFromScript("404")
     }
 }else{
-    document.title = "fucking idiot";
     readFromScript("404")
 }
